@@ -1,13 +1,30 @@
+import type { Metadata } from "next";
+import { ThemeProvider } from "@wrksz/themes/next";
 import "./globals.css";
+
+export const metadata: Metadata = {
+  title: "Counter Showcase",
+  description: "HeroUI v3 counter demo",
+};
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en" className="h-full antialiased">
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="en" suppressHydrationWarning>
+      <body suppressHydrationWarning>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem={false}
+          storageKey="theme"
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
