@@ -1,0 +1,60 @@
+# -------------------------
+# Next.js default ignores
+# -------------------------
+.next/
+out/
+dist/
+
+# Production
+build/
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Node modules
+node_modules/
+
+# Env files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+logs/
+*.log
+*.csv
+*.pid
+*.seed
+*.pid.lock
+
+# OS / Editor files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Typescript cache
+*.tsbuildinfo
+
+# Vercel
+.vercel/
+
+# Next.js Cache
+.cache/
+
+# IDEs
+.vscode/
+.idea/
+
+# Optional: Turborepo
+turbo/
+
+# Exceptions (lock files must be tracked)
+!pnpm-lock.yaml
+!package-lock.json
+!yarn.lock
