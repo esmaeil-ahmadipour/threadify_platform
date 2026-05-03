@@ -1,11 +1,5 @@
-"use server";
-
-import { signIn as authSignIn, signOut as authSignOut } from "@/utils/auth";
-
-export async function signIn() {
-  await authSignIn("github", { redirectTo: "/" });
-}
-
-export async function signOut() {
-  await authSignOut({ redirectTo: "/" });
-}
+export { signIn } from './sign-in';
+export { signOut } from './sign-out';
+export { createComment } from './create-comment';
+export { createPost } from './create-post';
+export { createTopic } from './create-topic';
