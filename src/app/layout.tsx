@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { ThemeProvider } from "@wrksz/themes/next";
 import "./globals.css";
 import Providers from "./providers";
+import Header from "@/components/Header/Header";
 
 export const metadata: Metadata = {
   title: "Threadify",
@@ -16,17 +16,12 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body suppressHydrationWarning>
-        <Providers>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="dark"
-            enableSystem={false}
-            storageKey="theme"
-            disableTransitionOnChange
-          >
+        <div className="container mx-auto px-4 max-w-6xl">
+          <Providers>
+            <Header />
             {children}
-          </ThemeProvider>
-        </Providers>
+          </Providers>
+        </div>
       </body>
     </html>
   );

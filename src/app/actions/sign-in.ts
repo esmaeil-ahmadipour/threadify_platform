@@ -1,7 +1,7 @@
-'use server';
+"use server";
 
-import * as auth from '@/utils/auth';
+import { signIn as authSignIn } from "@/utils/auth";
 
 export async function signIn() {
-  return auth.signIn('github');
+  await authSignIn("github", { redirectTo: "/" });
 }

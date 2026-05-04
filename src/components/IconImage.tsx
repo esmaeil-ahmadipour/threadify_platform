@@ -21,6 +21,7 @@ interface IconImageProps {
   fitToSquare?: boolean;
   noBorder?: boolean;
   extraSpace?: boolean;
+  loading?: "lazy" | "eager";
 }
 
 export default function IconImage({
@@ -43,6 +44,7 @@ export default function IconImage({
   fitToSquare = false,
   noBorder = true,
   extraSpace = false,
+  loading,
 }: IconImageProps) {
   // Determine container classes
   const containerClasses = [
@@ -71,6 +73,12 @@ export default function IconImage({
     ? { width: `${containerSize}px`, height: `${containerSize}px` }
     : undefined;
 
+  // Determine if the image should use fill mode
+  const shouldFill = fill || fitToSquare;
+
+  // Set default sizes if missing when fill is true
+  const defaultSizes = shouldFill && !sizes ? "100vw" : sizes;
+
   return (
     <div className={containerClasses} style={containerStyle}>
       {children ? (
@@ -80,13 +88,14 @@ export default function IconImage({
           <Image
             src={src}
             alt={alt}
-            width={!fill && !fitToSquare ? width : undefined}
-            height={!fill && !fitToSquare ? height : undefined}
+            width={!shouldFill ? width : undefined}
+            height={!shouldFill ? height : undefined}
             priority={priority}
             className={imageClasses}
-            fill={fill || fitToSquare}
-            sizes={sizes}
+            fill={shouldFill}
+            sizes={defaultSizes}
             quality={quality}
+            loading={loading}
           />
         </div>
       )}

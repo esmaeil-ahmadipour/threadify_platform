@@ -1,9 +1,10 @@
 import Link from "next/link";
- import { AuthButtons } from "./AuthButtons";
+import { AuthButtons } from "./AuthButtons";
 import { SearchInput } from "./SearchInput";
 import IconImage from "../IconImage";
 
 export default function Header() {
+  
   return (
     <nav className="sticky top-0 z-40 w-full border-b border-separator bg-background/70 backdrop-blur-lg shadow mb-6">
       <header className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
@@ -18,6 +19,8 @@ export default function Header() {
             roundedSize="lg"
             extraSpace
             noBorder
+            loading="eager"
+            sizes="(max-width: 768px) 100vw, 64px"
           />
           <Link
             href="/"
@@ -34,7 +37,7 @@ export default function Header() {
 
         {/* Auth Section */}
         <div className="flex items-center gap-3">
-          <AuthButtons  />
+          <AuthButtons />
         </div>
       </header>
 
