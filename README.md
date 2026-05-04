@@ -31,11 +31,11 @@ The goal is not just to build a forum — but to build it the right way. ✅
 ## 🎯 Features
 
 - 🧵 **Topic-Based Discussions** — Create, browse, and manage topics for organized conversations.
+- 🔐 **GitHub OAuth Authentication** — Sign up and sign in securely using GitHub account.
 - ✍️ **Post Creation Workflow** — Simple, structured interface for writing and publishing posts.
 - 💬 **Threaded Comments** — Support for nested, meaningful discussions.
 - ⚡ **Server Components** — Fast, efficient rendering with minimal client-side overhead.
 - 🛠️ **Server Actions** — Type-safe form handling and mutation logic directly on the server.
-- 🔐 **Auth-Ready Structure** — Clean authentication boundaries (plug-in for any provider).
 - 🗂️ **Scalable Folder Architecture** — Maintainable layout suitable for long-term growth.
 - 🔄 **Dynamic & Static Rendering** — Optimized data fetching using Next.js rules (static, dynamic, revalidation).
 - 🎨 **Tailwind CSS 4** — Modern, utility-first styling with responsive design out of the box.
@@ -53,6 +53,8 @@ The goal is not just to build a forum — but to build it the right way. ✅
 | Next.js      | 16.2.4             |
 | React        | 19.2.4             |
 | React DOM    | 19.2.4             |
+| NextAuth     | 5.0.0-beta.25      |
+| Prisma       | 5.5.2              |
 | TypeScript   | 5                  |
 | Tailwind CSS | 4                  |
 | ESLint       | 9                  |
@@ -76,7 +78,33 @@ cd threadify_platform
 pnpm install
 ```
 
-3. **Run development server:**
+3. **Set up environment variables:**
+
+Create a `.env.local` file in the root directory:
+
+```env
+# GitHub OAuth (required for authentication)
+GITHUB_CLIENT_ID=your_github_client_id
+GITHUB_CLIENT_SECRET=your_github_client_secret
+
+# Database
+DATABASE_URL="file:./dev.db"
+```
+
+**Get GitHub OAuth credentials:**
+
+1. GitHub Settings → Developer settings → OAuth Apps → New OAuth App
+2. Homepage URL: `http://localhost:3000`
+3. Callback URL: `http://localhost:3000/api/auth/callback/github`
+
+4. **Set up the database:**
+
+```bash
+pnpm prisma generate
+pnpm prisma db push
+```
+
+5. **Run development server:**
 
 ```bash
 pnpm dev
@@ -84,19 +112,19 @@ pnpm dev
 
 Visit 👉 http://localhost:3000
 
-4. **Build for production:**
+6. **Build for production:**
 
 ```bash
 pnpm build
 ```
 
-5. **Run production build:**
+7. **Run production build:**
 
 ```bash
 pnpm start
 ```
 
-6. **Lint code:**
+8. **Lint code:**
 
 ```bash
 pnpm lint
@@ -104,17 +132,29 @@ pnpm lint
 
 ---
 
+## 🔐 Authentication
+
+Threadify uses **GitHub OAuth** via NextAuth.js (Auth.js):
+
+- ✅ Sign in with GitHub account
+- ✅ Auto-registration on first login
+- ✅ Server-side session management
+- ✅ Prisma adapter for database persistence
+
+---
+
 ## 📜 Scripts
 
 ```bash
-pnpm dev       # Start dev server with Turbopack
-pnpm build     # Production build
-pnpm start     # Run production build
-pnpm lint      # Run ESLint
+pnpm dev              # Start dev server with Turbopack
+pnpm build            # Production build
+pnpm start            # Run production build
+pnpm lint             # Run ESLint
+pnpm prisma studio    # Open Prisma database UI
 ```
 
 ---
 
 ## 📄 License
 
-[LICENSE File](./LICENSE)
+LICENSE File](./LICENSE)
