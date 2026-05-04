@@ -2,9 +2,9 @@ import Link from "next/link";
 import { AuthButtons } from "./AuthButtons";
 import { SearchInput } from "./SearchInput";
 import IconImage from "../IconImage";
+import { ThemeToggle } from "../ThemeToggle";
 
 export default function Header() {
-  
   return (
     <nav className="sticky top-0 z-40 w-full border-b border-separator bg-background/70 backdrop-blur-lg shadow mb-6">
       <header className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
@@ -22,6 +22,7 @@ export default function Header() {
             loading="eager"
             sizes="(max-width: 768px) 100vw, 64px"
           />
+          <ThemeToggle />
           <Link
             href="/"
             className="font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent hover:from-purple-600 hover:to-blue-600 transition-all duration-300"
