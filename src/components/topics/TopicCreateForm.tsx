@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Button,
   Popover,
@@ -11,6 +13,10 @@ import {
 import { createTopic } from "../../app/actions";
 
 export default function TopicCreateForm() {
+  const handleSubmit = async (formData: FormData) => {
+    const result = await createTopic(formData);
+  };
+
   return (
     <Popover>
       <PopoverTrigger>
@@ -25,13 +31,14 @@ export default function TopicCreateForm() {
           </h3>
 
           {/* Form */}
-          <form className="flex flex-col gap-5 mt-4" action={createTopic}>
+          <form className="flex flex-col gap-5 mt-4" action={handleSubmit}>
             {/* Name */}
             <div>
               <Label className="text-sm font-medium text-gray-900 dark:text-gray-300">
                 Name
               </Label>
               <Input
+                name="name"
                 placeholder="Name"
                 variant="primary"
                 color="primary"
@@ -45,6 +52,7 @@ export default function TopicCreateForm() {
                 Description
               </Label>
               <TextArea
+                name="description"
                 placeholder="Describe your topic"
                 variant="primary"
                 color="primary"
