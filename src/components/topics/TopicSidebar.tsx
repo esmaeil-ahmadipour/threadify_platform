@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import paths from "@/paths";
+import PostCreateForm from "@/components/posts/PostCreateForm";
 
 interface TopicSidebarProps {
   topic: {
@@ -28,12 +31,7 @@ export function TopicSidebar({ topic, postsCount }: TopicSidebarProps) {
         <h3 className="font-semibold text-gray-900 dark:text-white mb-3">
           Actions
         </h3>
-        <Link
-          href={paths.postCreate(topic.slug)}
-          className="block w-full text-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-        >
-          Create New Post
-        </Link>
+        <PostCreateForm topicSlug={topic.slug} />
       </div>
 
       {/* Stats Card */}

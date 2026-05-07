@@ -1,4 +1,4 @@
-import { EmptyState } from "@/components/shared/EmptyState";
+import { EmptyState } from "../shared/EmptyState";
 import { PostCard } from "./PostCard";
 
 interface Post {
