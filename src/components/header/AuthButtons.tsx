@@ -9,7 +9,7 @@ import {
 } from "@heroui/react";
 import { useSession } from "next-auth/react";
 import { signIn, signOut } from "../../app/actions";
-import { Skeleton } from "../skleton";
+import { Skeleton } from "../Skleton";
 
 export function AuthButtons() {
   const { data: session, status } = useSession();

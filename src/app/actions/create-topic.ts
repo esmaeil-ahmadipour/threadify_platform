@@ -63,11 +63,26 @@ export async function createTopic(
     });
   } catch (err: unknown) {
     if (err instanceof Error) {
-      return {
-        errors: {
-          _form: [err.message],
-        },
-      };
+      // Check for Prisma unique constraint error (P2002)
+      if (
+        err.message.includes("Unique constraint") ||
+        err.message.includes("P2002")
+      ) {
+        return {
+          errors: {
+            _form: [
+              "A topic with this name already exists. Please choose a different name.",
+            ],
+            name: ["This topic name is taken"],
+          },
+        };
+      } else {
+        return {
+          errors: {
+            _form: [err.message],
+          },
+        };
+      }
     } else {
       return {
         errors: {
