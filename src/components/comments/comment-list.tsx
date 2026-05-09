@@ -1,4 +1,3 @@
-import type { CommentWithAuthor } from "@/db/queries/comments";
 import CommentShow from "@/components/comments/comment-show";
 import { fetchCommentsByPostId } from "@/db/queries/comments";
 
@@ -19,8 +18,16 @@ export default async function CommentList({ postId }: CommentListProps) {
   });
 
   return (
-    <div className="space-y-3">
-      <h1 className="text-lg font-bold">All {comments.length} comments</h1>
+    <div className="space-y-4">
+      <div className="flex items-baseline gap-2">
+        <h1 className="text-xl font-bold text-gray-900 dark:text-white">
+          Comments
+        </h1>
+        <span className="text-sm text-gray-500 dark:text-gray-400">
+          ({comments.length})
+        </span>
+      </div>
+
       {renderedComments}
     </div>
   );

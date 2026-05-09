@@ -81,13 +81,19 @@ export default function CommentCreateForm({
             variant="outline"
             onPress={closeForm}
             isDisabled={isPending}
+            className="border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
           >
             Cancel <CloseIcon size={14} />
           </Button>
 
-          <FormButton isLoading={isPending}>
+          <Button
+            type="submit"
+            isDisabled={isPending}
+            variant="primary"
+            className="bg-blue-600 dark:bg-blue-500 text-white hover:bg-blue-700 dark:hover:bg-blue-600"
+          >
             Post Comment <SendIcon size={14} />
-          </FormButton>
+          </Button>
         </div>
       </div>
     </form>
@@ -96,11 +102,16 @@ export default function CommentCreateForm({
   return (
     <div className="w-full">
       {!open ? (
-        <Button size="sm" variant="outline" onPress={() => setOpen(true)}>
+        <Button
+          size="sm"
+          variant="outline"
+          onPress={() => setOpen(true)}
+          className="border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
+        >
           Write a comment... <WriteIcon size={16} />
         </Button>
       ) : (
-        <div className="rounded-2xl border border-gray-200 bg-gray-50/80 p-4 shadow-sm backdrop-blur-sm dark:border-gray-700 dark:bg-gray-900/40">
+        <div className="rounded-2xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900/40 p-4 shadow-sm">
           <div className="mb-3 flex items-center gap-2">
             <CommentIcon
               size={20}

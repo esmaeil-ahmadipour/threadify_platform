@@ -16,7 +16,7 @@ export function SearchInput() {
       placeholder="Search..."
       value={searchQuery}
       onChange={handleSearch}
-      className="w-full px-4 py-2 rounded-lg border border-default-200 bg-default-100 text-foreground placeholder:text-default-400 focus:outline-none focus:ring-2 focus:ring-primary"
+      className="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400"
     />
   );
 }
