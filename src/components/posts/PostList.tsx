@@ -13,6 +13,8 @@ export default async function PostList({
   topicSlug,
 }: PostListProps) {
   const posts = await fetchData();
+  // Simulate delay (optional, remove in production)
+  // await new Promise((resolve) => setTimeout(resolve, 1500));
 
   if (posts.length === 0) {
     return <EmptyState topicSlug={topicSlug || ""} />;

@@ -4,6 +4,8 @@ import { TopicHeader } from "@/components/topics/TopicHeader";
 import PostCreateForm from "@/components/posts/PostCreateForm";
 import PostList from "@/components/posts/PostList";
 import { fetchPostsByTopicSlug } from "@/db/queries/posts";
+import { Suspense } from "react";
+import { PostListLoading } from "@/components/loading/PostListLoading";
 
 interface TopicShowPageProps {
   params: Promise<{
@@ -41,7 +43,9 @@ export default async function TopicShowPage({ params }: TopicShowPageProps) {
       {/* Main content - Posts list */}
       <div className="col-span-3 space-y-6">
         <TopicHeader slug={topic.slug} description={topic.description} />
-        <PostList fetchData={() => fetchPostsByTopicSlug(slug)} />
+        <Suspense fallback={<PostListLoading />}>
+          <PostList fetchData={() => fetchPostsByTopicSlug(slug)} />
+        </Suspense>
       </div>
 
       {/* Sidebar - Replaced with PostCreateForm while keeping beautiful styling */}

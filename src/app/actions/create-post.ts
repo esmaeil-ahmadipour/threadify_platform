@@ -33,7 +33,7 @@ export async function createPost(
   topicSlug: string,
 ): Promise<CreatePostFormState> {
   // Simulate delay (optional, remove in production)
-  await new Promise((resolve) => setTimeout(resolve, 1500));
+  // await new Promise((resolve) => setTimeout(resolve, 1500));
 
   // Validate form data
   const result = createPostSchema.safeParse({

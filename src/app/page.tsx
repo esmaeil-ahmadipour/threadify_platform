@@ -1,5 +1,6 @@
 import TopicCreateForm from "@/components/topics/TopicCreateForm";
 import { TopicsList } from "@/components/topics/TopicsList";
+
 export default function Home() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-4 gap-6 p-4">
@@ -13,7 +14,8 @@ export default function Home() {
       {/* Sidebar */}
       <aside className="md:col-span-1 space-y-4">
         <TopicCreateForm />
-        <TopicsList />
+
+        <TopicsList></TopicsList>
       </aside>
     </div>
   );
