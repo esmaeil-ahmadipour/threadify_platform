@@ -8,7 +8,7 @@ import {
   PopoverContent,
 } from "@heroui/react";
 import { useSession } from "next-auth/react";
-import { signIn, signOut } from "../../app/actions";
+import { signIn, signOut } from "../../actions";
 import { Skeleton } from "../Skleton";
 
 export function AuthButtons() {

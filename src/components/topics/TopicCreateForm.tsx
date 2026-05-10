@@ -11,8 +11,8 @@ import {
   Input,
 } from "@heroui/react";
 import { useActionState, useState, startTransition } from "react";
-import * as actions from "@/app/actions";
- 
+import * as actions from "@/actions";
+
 // --------------------------------------------------------------
 // Inner component that holds the form logic.
 // It gets a new key every time the popover opens → fresh state.

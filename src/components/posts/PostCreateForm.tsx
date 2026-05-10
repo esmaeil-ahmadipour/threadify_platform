@@ -11,8 +11,8 @@ import {
   Input,
 } from "@heroui/react";
 import { useActionState, useState, startTransition } from "react";
-import * as actions from "@/app/actions";
-import type { CreatePostFormState } from "@/app/actions/create-post";
+import * as actions from "@/actions";
+import type { CreatePostFormState } from "@/actions/create-post";
 
 // --------------------------------------------------------------
 // Inner component that holds the form logic.

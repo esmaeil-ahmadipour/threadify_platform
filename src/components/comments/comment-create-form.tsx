@@ -8,7 +8,7 @@ import {
   useState,
 } from "react";
 import { Button, TextArea, TextField } from "@heroui/react";
-import * as actions from "@/app/actions";
+import * as actions from "@/actions";
 import FormButton from "../common/form-button";
 import { CommentIcon } from "@/components/icons/CommentIcon";
 import { WriteIcon } from "@/components/icons/WriteIcon";
