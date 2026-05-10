@@ -19,7 +19,7 @@ export default async function CommentList({ postId }: CommentListProps) {
 
   return (
     <div className="space-y-4">
-      <div className="flex items-baseline gap-2">
+      <div className="flex items-baseline gap-2 py-3">
         <h1 className="text-xl font-bold text-gray-900 dark:text-white">
           Comments
         </h1>
