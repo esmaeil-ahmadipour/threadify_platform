@@ -1,5 +1,7 @@
+import PostList from "@/components/posts/PostList";
 import TopicCreateForm from "@/components/topics/TopicCreateForm";
 import { TopicsList } from "@/components/topics/TopicsList";
+import { fetchTopPosts } from "@/db/queries/posts";
 
 export default function Home() {
   return (
@@ -7,7 +9,7 @@ export default function Home() {
       {/* Main content */}
       <div className="md:col-span-3 space-y-4">
         <h1 className="text-xl font-semibold">Top Posts</h1>
-
+        <PostList fetchData={fetchTopPosts} />
         {/* <PostList /> */}
       </div>
 
